@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Common Canvas � Distributed Whiteboard</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><a class="brand" href="/">? Common Canvas</a><span class="tag">A shared space for bright ideas</span><span id="status" role="status">Connecting.</span></header>
+<main>
+  <div class="heading"><div><p class="eyebrow">REAL-TIME COLLABORATION</p><h1>Think together. Draw together.</h1></div><button id="share">Copy room link ?</button></div>
+  <section class="workspace">
+    <div class="toolbar">
+      <form id="roomForm"><label for="room">Room</label><input id="room" maxlength="48" pattern="[A-Za-z0-9_-]+" required aria-label="Room ID"><button>Join</button></form>
+      <div class="tools"><button id="pen" class="selected" aria-pressed="true">? Pen</button><button id="eraser" aria-pressed="false">? Eraser</button><label class="color">Ink <input id="color" type="color" value="#4f46e5"></label><label class="size">Size <input id="size" type="range" min="1" max="40" value="4"><output id="sizeValue">4</output></label></div>
+      <button id="clear" class="danger">Clear board</button>
+    </div>
+    <div id="board"><canvas id="canvas" width="1600" height="900" aria-label="Shared drawing canvas"></canvas><div id="cursors"></div><div id="offline">Connecting to your room.</div></div>
+    <footer><span id="badge">Connected to: -</span><span id="metrics">Waiting for state</span><span>Redis Pub/Sub � 3 replicas</span></footer>
+  </section>
+  <p class="hint">Share the room link to collaborate. Open it in another tab to watch cross-server synchronization.</p>
+  <p id="notice" role="status"></p>
+</main><script src="/app.js" defer></script>
+</body></html>
+
